@@ -10,7 +10,7 @@ for (let i = 0; i<gridSize; i++){
 
 squaresArr.forEach(function(sqArr) {
     let square = document.createElement('div');
-    square.textContent = sqArr;
+    //square.textContent = sqArr;
     fragment.appendChild(square);
 });
 
