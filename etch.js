@@ -6,28 +6,40 @@ let fragment = document.createDocumentFragment();
 let gridSize = 16;
 let squaresArr = [];
 
+////////////////////////////////////////////////
 //This creates all of the squares into squareArray
+////////////////////////////////////////////////
 for (let i = 0; i<gridSize; i++){
-    squaresArr.push('square'+(i+1));
+    squaresArr.push('square-'+(i+1));
     console.log(squaresArr[i]);
     }
 
 squaresArr.forEach(function(sqArr) {
     let square = document.createElement('div');
-    square.classList.add(sqArr);
-    console.log(sqArr)
-    //square.textContent = sqArr;
+    square.classList.add('square');
+    square.id = sqArr;
     fragment.appendChild(square);
 });
 
 element.appendChild(fragment);
+////////////////////////////////////////////////
+////////////////////////////////////////////////
 
 
-var item = document.getElementById("button");
-item.addEventListener("mouseover", func, false);
+////////////////////////////////////////////////
+///Add mouseover event
+////////////////////////////////////////////////
+const hoverSquares = document.querySelectorAll('.square');
 
-function func()
-{  
-   var item = document.getElementById("button");
-   item.setAttribute("style", "background-color:blue;")
-}
+hoverSquares.forEach(box => {
+  box.addEventListener('mouseover', function hoverEvent(event) {
+    console.log('box hovered', event);
+    box.setAttribute('style', 'background-color: black;');
+  });
+});
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+
+
+
