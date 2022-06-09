@@ -7,7 +7,8 @@ let gridSize = 16;
 let squaresArr = [];
 
 ////////////////////////////////////////////////
-//This creates all of the squares into squareArray
+//This creates all of the squares for the grid
+//and insert them into the DOM
 ////////////////////////////////////////////////
 for (let i = 0; i<gridSize; i++){
     squaresArr.push('square-'+(i+1));
