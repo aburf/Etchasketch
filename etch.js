@@ -42,5 +42,22 @@ hoverSquares.forEach(box => {
 ////////////////////////////////////////////////
 
 
+////////////////////////////////////////////////
+///Create slider for grid size slection
+////////////////////////////////////////////////
 
+/*<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
+*/
+
+//parentNode.insertBefore(newNode, referenceNode) //inserts newNode into parentNode before referenceNode
+const slidecontainer = document.querySelector('#slidecontainer');
+var sliderInput = document.createElement('input');
+sliderInput.style.cssText = 'position:absolute;width:100%;height:100%;opacity:0.3;z-index:100;background:#000;';
+slidecontainer.appendChild(sliderInput)
+//document.body.insertBefore(sliderInput, gridContainer)
+//document.body.appendChild(elemDiv);
+////////////////////////////////////////////////
+////////////////////////////////////////////////
 
