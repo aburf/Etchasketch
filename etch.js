@@ -7,26 +7,12 @@ let gridSize = 16;
 let squaresArr = [];
 
 ////////////////////////////////////////////////
-///Create grid dimension input button
+///to revise grid based on gridSize
 ////////////////////////////////////////////////
 
-function dimInput() {
-  let gridDim = prompt("Please enter square dimensions (less than 100)", 16);
-  if (gridDim != null && gridDim <=100) {
-    
-    //remove pre-existing grid to make way for new one
-    const myNode = document.getElementById("gridContainer");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-    
-    //make new grid
-    makeGrid(gridDim);
-
-    //reassign mouseover coloring
-    addMouseColoring();
-  }
-};
+function updateGridCSS(columnCount) {
+  document.getElementById("gridContainer").style.gridTemplateColumns = `repeat(${columnCount}, 1fr)`;
+}
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 
@@ -35,7 +21,9 @@ function dimInput() {
 //This creates all of the squares for the grid
 //and insert them into the DOM
 ////////////////////////////////////////////////
-function makeGrid(sizeDim){
+function makeGrid(sizeDim){ ///size dim should be squared amount of user input
+  gridSize = sizeDim;
+  squaresArr=[];
   for (let i = 0; i<gridSize; i++){
       squaresArr.push('square-'+(i+1));
       console.log(squaresArr[i]);
@@ -76,4 +64,31 @@ addMouseColoring(); //call for initial site load
 
 
 
+////////////////////////////////////////////////
+///Create grid dimension input button
+////////////////////////////////////////////////
+
+function dimInput() {
+  let gridDim = prompt("Please enter square dimensions (less than 100)", 16);
+  let gridDimSqu = gridDim*gridDim
+  if (gridDim != null && gridDim <=100) {
+    
+    //remove pre-existing grid to make way for new one
+    const myNode = document.getElementById("gridContainer");
+    while (myNode.firstChild) {
+      myNode.removeChild(myNode.lastChild);
+    }
+    
+    //apply new CSS for new grid size
+    updateGridCSS(gridDim)
+
+    //make new grid
+    makeGrid(gridDimSqu);
+
+    //reassign mouseover coloring
+    addMouseColoring();
+  }
+};
+////////////////////////////////////////////////
+////////////////////////////////////////////////
 
